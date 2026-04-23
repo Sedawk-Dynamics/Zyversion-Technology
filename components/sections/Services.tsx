@@ -8,6 +8,13 @@ import {
   Cloud,
   Shield,
   Zap,
+  Fingerprint,
+  RefreshCw,
+  Lock,
+  Code,
+  Terminal,
+  Server,
+  Database
 } from "lucide-react"
 
 const SERVICES = [
@@ -28,7 +35,6 @@ const SERVICES = [
       { value: "2x Faster", label: "Delivery" },
     ],
     tech: ["React Native", "Flutter", "Swift", "Kotlin"],
-    imageSrc: null,
   },
   {
     icon: Code2,
@@ -47,7 +53,6 @@ const SERVICES = [
       { value: "10x", label: "Scalability" },
     ],
     tech: ["Node.js", "Next.js", "Java", "Python"],
-    imageSrc: "/images/CRM.webp",
   },
   {
     icon: Cloud,
@@ -66,7 +71,6 @@ const SERVICES = [
       { value: "3x Faster", label: "Deployments" },
     ],
     tech: ["AWS", "Docker", "Kubernetes", "Azure"],
-    imageSrc: "/images/dev-oops.png",
   },
   {
     icon: Shield,
@@ -85,7 +89,6 @@ const SERVICES = [
       { value: "24/7", label: "Monitoring" },
     ],
     tech: ["ISO", "SOC2", "Firewall", "SIEM"],
-    imageSrc: "/images/cyber-shield.png",
   },
 ]
 
@@ -322,34 +325,129 @@ export default function ServicesZigZagPremium() {
                       <motion.div
                         animate={{ y: [-8, 8, -8] }}
                         transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                        className={`mx-auto bg-white/5 backdrop-blur-xl shadow-xl relative overflow-hidden group-hover:border-purple-400/50 transition-colors duration-700 group-hover:shadow-[0_0_30px_rgba(168,85,247,0.2)] flex items-center justify-center ${index === 0
-                          ? "w-48 h-[340px] rounded-[30px] border-[6px] border-white/20 p-4"
-                          : "w-64 h-64 rounded-2xl border border-white/20 p-6"
-                          }`}
+                        className={`mx-auto bg-white/5 backdrop-blur-xl shadow-xl relative overflow-hidden group-hover:border-purple-400/50 transition-colors duration-700 group-hover:shadow-[0_0_30px_rgba(168,85,247,0.2)] flex items-center justify-center w-64 h-72 rounded-3xl border border-white/20`}
                       >
-                        {index === 0 ? (
-                          <>
-                            {/* Device Screen Grid Indicator */}
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff30_1px,transparent_1px)] bg-[size:1rem_1rem]" />
+                        {index === 0 && (
+                          <div className="relative w-full h-full flex items-center justify-center">
+                            {/* Device Frame */}
+                            <div className="absolute inset-0 m-6 border-2 border-purple-500/40 rounded-3xl bg-black/40 shadow-[0_0_20px_rgba(168,85,247,0.3)] backdrop-blur-sm" />
+                            {/* Inner Screen */}
+                            <div className="absolute inset-6 m-2 border border-purple-400/20 rounded-2xl bg-gradient-to-b from-purple-900/30 to-transparent overflow-hidden flex flex-col items-center">
+                              {/* Speaker line */}
+                              <div className="w-12 h-1 bg-white/30 rounded-full mt-3 mb-auto" />
 
-                            {/* Speaker line */}
-                            <div className="w-16 h-1.5 bg-white/30 rounded-full mx-auto mb-5 relative z-10" />
-
-                            {/* Device Screen Content (Skeletons) */}
-                            <div className="space-y-3 relative z-10">
-                              <div className="h-3 bg-white/30 rounded w-3/4 animate-pulse" />
-                              <div className="h-3 bg-white/10 rounded w-full" />
-                              <div className="h-20 bg-gradient-to-br from-white/20 to-white/5 rounded-lg border border-white/5" />
-                              <div className="h-20 bg-gradient-to-br from-white/20 to-white/5 rounded-lg border border-white/5" />
+                              {/* Central Icon */}
+                              <div className="text-purple-400/60 mb-8">
+                                <Fingerprint className="w-10 h-10" />
+                              </div>
                             </div>
-                          </>
-                        ) : (
-                          <div className="relative w-full h-full">
-                            <img
-                              src={service.imageSrc!}
-                              alt={service.title}
-                              className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]"
+
+                            {/* Orbiting Icons */}
+                            <motion.div
+                              animate={{ rotate: 360 }}
+                              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                              className="absolute inset-0 m-2 flex items-center justify-center pointer-events-none"
+                            >
+                              <div className="absolute w-full h-full border border-white/10 rounded-full scale-[1.1]" /> {/* Orbit Path */}
+                              <motion.div className="absolute -left-2 bg-purple-900/70 border border-purple-500/50 p-2.5 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.4)]" animate={{ rotate: -360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}>
+                                <RefreshCw className="w-5 h-5 text-purple-300" />
+                              </motion.div>
+                              <motion.div className="absolute -right-2 bg-blue-900/70 border border-blue-500/50 p-2.5 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.4)]" animate={{ rotate: -360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}>
+                                <Lock className="w-5 h-5 text-blue-300" />
+                              </motion.div>
+                            </motion.div>
+                          </div>
+                        )}
+
+                        {index === 1 && (
+                          <div className="relative w-full h-full flex items-center justify-center">
+                            {/* Central Code Window */}
+                            <motion.div
+                              animate={{ y: [-5, 5, -5] }}
+                              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                              className="relative z-10 w-44 h-32 bg-[#0f172a] border border-purple-500/40 rounded-xl p-3 shadow-[0_0_25px_rgba(168,85,247,0.25)] backdrop-blur-md"
+                            >
+                              <div className="flex gap-1.5 mb-3 border-b border-white/10 pb-2">
+                                <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                                <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                              </div>
+                              <div className="space-y-2">
+                                <div className="h-2 w-3/4 bg-purple-400/50 rounded" />
+                                <div className="h-2 w-1/2 bg-blue-400/50 rounded" />
+                                <div className="h-2 w-5/6 bg-white/30 rounded" />
+                                <div className="h-2 w-2/3 bg-white/20 rounded" />
+                              </div>
+                            </motion.div>
+
+                            {/* Floating Elements */}
+                            <motion.div
+                              animate={{ y: [5, -5, 5], x: [-5, 5, -5] }}
+                              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                              className="absolute top-8 right-4 bg-purple-900/60 border border-purple-500/40 p-2.5 rounded-xl shadow-lg"
+                            >
+                              <Code className="w-6 h-6 text-purple-300" />
+                            </motion.div>
+
+                            <motion.div
+                              animate={{ y: [-5, 5, -5], x: [5, -5, 5] }}
+                              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                              className="absolute bottom-8 left-4 bg-blue-900/60 border border-blue-500/40 p-2.5 rounded-xl shadow-lg"
+                            >
+                              <Terminal className="w-6 h-6 text-blue-300" />
+                            </motion.div>
+                          </div>
+                        )}
+
+                        {index === 2 && (
+                          <div className="relative w-full h-full flex items-center justify-center">
+                            {/* Central Cloud */}
+                            <motion.div
+                              animate={{ scale: [1, 1.05, 1] }}
+                              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                              className="relative z-10 text-purple-400"
+                            >
+                              <Cloud className="w-20 h-20 drop-shadow-[0_0_25px_rgba(168,85,247,0.6)]" />
+                            </motion.div>
+
+                            {/* Orbiting Servers */}
+                            <motion.div
+                              animate={{ rotate: 360 }}
+                              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                              className="absolute inset-8 border border-blue-500/20 rounded-full"
+                            >
+                              <motion.div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0f172a] border border-blue-500/40 p-2 rounded-lg shadow-[0_0_15px_rgba(59,130,246,0.4)]" animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
+                                <Server className="w-5 h-5 text-blue-400" />
+                              </motion.div>
+                              <motion.div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-[#0f172a] border border-purple-500/40 p-2 rounded-lg shadow-[0_0_15px_rgba(168,85,247,0.4)]" animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
+                                <Database className="w-5 h-5 text-purple-400" />
+                              </motion.div>
+                            </motion.div>
+                          </div>
+                        )}
+
+                        {index === 3 && (
+                          <div className="relative w-full h-full flex items-center justify-center">
+                            {/* Scanning Radar Background */}
+                            <motion.div
+                              animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
+                              transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+                              className="absolute inset-6 border-2 border-purple-500/30 rounded-full"
                             />
+                            <motion.div
+                              animate={{ scale: [0.8, 1.4, 0.8], opacity: [0.8, 0, 0.8] }}
+                              transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: 0.8 }}
+                              className="absolute inset-10 border-2 border-blue-500/30 rounded-full"
+                            />
+
+                            {/* Central Shield */}
+                            <motion.div
+                              animate={{ y: [-4, 4, -4] }}
+                              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                              className="relative z-10 text-blue-400 drop-shadow-[0_0_30px_rgba(59,130,246,0.6)]"
+                            >
+                              <Shield className="w-24 h-24" />
+                            </motion.div>
                           </div>
                         )}
                       </motion.div>
