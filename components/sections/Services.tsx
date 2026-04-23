@@ -28,6 +28,7 @@ const SERVICES = [
       { value: "2x Faster", label: "Delivery" },
     ],
     tech: ["React Native", "Flutter", "Swift", "Kotlin"],
+    imageSrc: null,
   },
   {
     icon: Code2,
@@ -46,6 +47,7 @@ const SERVICES = [
       { value: "10x", label: "Scalability" },
     ],
     tech: ["Node.js", "Next.js", "Java", "Python"],
+    imageSrc: "/images/CRM.webp",
   },
   {
     icon: Cloud,
@@ -64,6 +66,7 @@ const SERVICES = [
       { value: "3x Faster", label: "Deployments" },
     ],
     tech: ["AWS", "Docker", "Kubernetes", "Azure"],
+    imageSrc: "/images/dev-oops.png",
   },
   {
     icon: Shield,
@@ -82,6 +85,7 @@ const SERVICES = [
       { value: "24/7", label: "Monitoring" },
     ],
     tech: ["ISO", "SOC2", "Firewall", "SIEM"],
+    imageSrc: "/images/cyber-shield.png",
   },
 ]
 
@@ -206,16 +210,16 @@ const ParticleNetwork = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-      
+
       for (let i = 0; i < particles.length; i++) {
         particles[i].update()
         particles[i].draw()
-        
+
         for (let j = i; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x
           const dy = particles[i].y - particles[j].y
           const distance = Math.sqrt(dx * dx + dy * dy)
-          
+
           if (distance < 150) {
             ctx.beginPath()
             ctx.strokeStyle = `rgba(255, 255, 255, ${0.25 - distance / 600})`
@@ -251,15 +255,15 @@ export default function ServicesZigZagPremium() {
       {/* Enhanced Background Motion & Grid Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Animated Orbs */}
-        <motion.div 
+        <motion.div
           animate={{ x: [0, 40, 0], y: [0, -40, 0] }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[10%] left-[10%] w-[350px] h-[350px] bg-purple-500/10 blur-[100px] rounded-full" 
+          className="absolute top-[10%] left-[10%] w-[350px] h-[350px] bg-purple-500/10 blur-[100px] rounded-full"
         />
-        <motion.div 
+        <motion.div
           animate={{ x: [0, -50, 0], y: [0, 50, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-blue-500/10 blur-[100px] rounded-full" 
+          className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-blue-500/10 blur-[100px] rounded-full"
         />
 
         {/* Node Connecting Animation */}
@@ -289,80 +293,65 @@ export default function ServicesZigZagPremium() {
 
                   {/* Outer Glass Container */}
                   <div className="relative bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-2xl overflow-hidden group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-700 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
-                    
+
                     {/* Inner Cyber-grid Motion */}
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff40_1px,transparent_1px)] bg-[size:2rem_2rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)] opacity-30 group-hover:opacity-60 transition-opacity duration-700" />
-                    
+
                     {/* System Nodes / Data Flow */}
-                    <motion.div 
+                    <motion.div
                       initial={{ top: "-10%" }}
                       animate={{ top: "110%" }}
                       transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                       className="absolute left-[20%] w-[1px] h-32 bg-gradient-to-b from-transparent via-purple-500/50 to-transparent"
                     />
-                    <motion.div 
+                    <motion.div
                       initial={{ top: "-10%" }}
                       animate={{ top: "110%" }}
                       transition={{ duration: 4.5, repeat: Infinity, ease: "linear", delay: 1.5 }}
                       className="absolute left-[75%] w-[1px] h-40 bg-gradient-to-b from-transparent via-blue-500/50 to-transparent"
                     />
-                    <motion.div 
+                    <motion.div
                       animate={{ y: [0, -15, 0], scale: [1, 1.2, 1] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                      className="absolute top-[20%] right-[15%] w-2 h-2 bg-purple-400 rounded-full shadow-[0_0_10px_#c084fc]" 
+                      className="absolute top-[20%] right-[15%] w-2 h-2 bg-purple-400 rounded-full shadow-[0_0_10px_#c084fc]"
                     />
 
                     {/* Inner Device Container */}
                     <div className="relative z-10 bg-white/5 border border-white/10 rounded-2xl p-6 shadow-2xl backdrop-blur-md">
 
-                      {/* Floating Device */}
-                      <motion.div 
+                      <motion.div
                         animate={{ y: [-8, 8, -8] }}
                         transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                        className="w-48 h-[340px] mx-auto bg-white/5 backdrop-blur-xl rounded-[30px] border-[6px] border-white/20 p-4 shadow-xl relative overflow-hidden group-hover:border-purple-400/50 transition-colors duration-700 group-hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]"
+                        className={`mx-auto bg-white/5 backdrop-blur-xl shadow-xl relative overflow-hidden group-hover:border-purple-400/50 transition-colors duration-700 group-hover:shadow-[0_0_30px_rgba(168,85,247,0.2)] flex items-center justify-center ${index === 0
+                          ? "w-48 h-[340px] rounded-[30px] border-[6px] border-white/20 p-4"
+                          : "w-64 h-64 rounded-2xl border border-white/20 p-6"
+                          }`}
                       >
-                        {/* Device Screen Grid Indicator */}
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff30_1px,transparent_1px)] bg-[size:1rem_1rem]" />
+                        {index === 0 ? (
+                          <>
+                            {/* Device Screen Grid Indicator */}
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff30_1px,transparent_1px)] bg-[size:1rem_1rem]" />
 
-                        {/* Speaker line */}
-                        <div className="w-16 h-1.5 bg-white/30 rounded-full mx-auto mb-5 relative z-10" />
+                            {/* Speaker line */}
+                            <div className="w-16 h-1.5 bg-white/30 rounded-full mx-auto mb-5 relative z-10" />
 
-                        {/* Device Screen Content (Skeletons) */}
-                        <div className="space-y-3 relative z-10">
-                          {index === 0 && (
-                            <>
+                            {/* Device Screen Content (Skeletons) */}
+                            <div className="space-y-3 relative z-10">
                               <div className="h-3 bg-white/30 rounded w-3/4 animate-pulse" />
                               <div className="h-3 bg-white/10 rounded w-full" />
                               <div className="h-20 bg-gradient-to-br from-white/20 to-white/5 rounded-lg border border-white/5" />
                               <div className="h-20 bg-gradient-to-br from-white/20 to-white/5 rounded-lg border border-white/5" />
-                            </>
-                          )}
-                          {index === 1 && (
-                            <>
-                              <div className="h-3 bg-white/30 rounded w-2/3 animate-pulse" />
-                              <div className="h-3 bg-white/10 rounded w-full" />
-                              <div className="h-10 bg-gradient-to-r from-purple-500/20 to-transparent rounded border border-white/5" />
-                              <div className="h-10 bg-white/10 rounded border border-white/5" />
-                              <div className="h-10 bg-white/10 rounded border border-white/5" />
-                            </>
-                          )}
-                          {index === 2 && (
-                            <>
-                              <div className="h-3 bg-white/30 rounded w-1/2 animate-pulse" />
-                              <div className="h-3 bg-white/10 rounded w-full" />
-                              <div className="h-16 bg-gradient-to-br from-blue-500/20 to-white/5 rounded-lg border border-white/5" />
-                              <div className="h-16 bg-white/10 rounded-lg border border-white/5" />
-                            </>
-                          )}
-                          {index === 3 && (
-                            <>
-                              <div className="h-3 bg-white/30 rounded w-3/4 animate-pulse" />
-                              <div className="h-3 bg-white/10 rounded w-2/3" />
-                              <div className="h-12 bg-gradient-to-tr from-green-500/20 to-white/5 rounded border border-white/5" />
-                              <div className="h-12 bg-white/10 rounded border border-white/5" />
-                            </>
-                          )}
-                        </div>
+                            </div>
+                          </>
+                        ) : (
+                          <div className="relative w-full h-full">
+                            <img
+                              src={service.imageSrc!}
+                              alt={service.title}
+                              className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]"
+                            />
+                          </div>
+                        )}
                       </motion.div>
 
                       {/* Glass Pills */}
