@@ -195,7 +195,7 @@ export default function Footer() {
       </footer>
 
       {/* Credit Bar */}
-      <div className="bg-[#0b1220] text-center py-4 text-xs text-[#7a93b8]">
+      {/* <div className="bg-[#0b1220] text-center py-4 text-xs text-[#7a93b8]">
         Designed & Developed by{' '}
         <a
           href="https://webel.io"
@@ -204,7 +204,7 @@ export default function Footer() {
         >
           Webel.io
         </a>
-      </div>
+      </div> */}
     </>
   )
 }

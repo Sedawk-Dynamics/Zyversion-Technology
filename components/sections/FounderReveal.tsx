@@ -93,8 +93,8 @@ export default function FounderReveal() {
                   className="w-full h-full"
                 >
                   <Image
-                    src="/images/founder.jpg"
-                    alt="Shivam Mishra — Founder & CEO, Zyverion Technologies"
+                    src="/images/"
+                    alt="Shivam Rai — Founder & Director, Zyverion Technologies"
                     width={480}
                     height={560}
                     className="w-full h-full object-cover"
@@ -138,9 +138,9 @@ export default function FounderReveal() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="absolute bottom-0 left-0 right-0 z-40 bg-[#0d1628]/95 backdrop-blur-md border-t border-[rgba(59,159,255,0.2)] px-6 py-5"
               >
-                <p className="text-[#f0f4ff] font-bold text-lg">Shivam Mishra</p>
+                <p className="text-[#f0f4ff] font-bold text-lg">Shivam Rai</p>
                 <p className="text-[#3b9fff] text-xs font-semibold tracking-widest uppercase mt-1">
-                  Founder &amp; Chief Executive Officer
+                  Founder &amp; & Director
                 </p>
               </motion.div>
             </div>
