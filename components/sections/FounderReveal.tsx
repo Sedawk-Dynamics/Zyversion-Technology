@@ -94,7 +94,7 @@ export default function FounderReveal() {
                 >
                   <Image
                     src="/images/"
-                    alt="Shivam Rai — Founder & Director, Zyverion Technologies"
+                    alt="Shivam RAI — Founder & Director, Zyverion Technologies"
                     width={480}
                     height={560}
                     className="w-full h-full object-cover"
@@ -138,7 +138,7 @@ export default function FounderReveal() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="absolute bottom-0 left-0 right-0 z-40 bg-[#0d1628]/95 backdrop-blur-md border-t border-[rgba(59,159,255,0.2)] px-6 py-5"
               >
-                <p className="text-[#f0f4ff] font-bold text-lg">Shivam Rai</p>
+                <p className="text-[#f0f4ff] font-bold text-lg">Shivam RAI</p>
                 <p className="text-[#3b9fff] text-xs font-semibold tracking-widest uppercase mt-1">
                   Founder &amp; & Director
                 </p>
@@ -170,7 +170,7 @@ export default function FounderReveal() {
               className="flex flex-col gap-4"
             >
               <p className="text-[#7a93b8] leading-relaxed">
-                Shivam Mishra founded Zyverion Technologies with a clear mission: to bridge the
+                Shivam RAI founded Zyverion Technologies with a clear mission: to bridge the
                 gap between cutting-edge technology and real-world business challenges. His vision
                 is to create systems that are not just intelligent, but evolve alongside their users.
               </p>
