@@ -93,7 +93,7 @@ export default function FounderReveal() {
                   className="w-full h-full"
                 >
                   <Image
-                    src="/images/"
+                    src="/images/ok.jpeg"
                     alt="Shivam RAI — Founder & Director, Zyverion Technologies"
                     width={480}
                     height={560}
