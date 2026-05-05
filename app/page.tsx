@@ -5,7 +5,6 @@ import About from '@/components/sections/About'
 import WhyUs from '@/components/sections/WhyUs'
 import Services from '@/components/sections/Services'
 import FounderReveal from '@/components/sections/FounderReveal'
-import Founder from '@/components/sections/Founder'
 import Values from '@/components/sections/Values'
 import Testimonials from '@/components/sections/Testimonials'
 import CTA from '@/components/sections/CTA'
@@ -22,7 +21,6 @@ export default function Home() {
       <WhyUs />
       <Services />
       <FounderReveal />
-      <Founder />
       <Values />
       <Testimonials />
       <CTA />
