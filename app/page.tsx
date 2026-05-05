@@ -22,7 +22,7 @@ export default function Home() {
       <WhyUs />
       <Services />
       <FounderReveal />
-      {/* <Founder /> */}
+      <Founder />
       <Values />
       <Testimonials />
       <CTA />

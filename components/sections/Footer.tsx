@@ -156,21 +156,24 @@ export default function Footer() {
               <h3 className="text-white text-sm font-semibold mb-5">Contact</h3>
 
               <ul className="space-y-4 text-sm text-[#7a93b8]">
-                <li className="flex gap-2">
-                  <Mail size={16} className="text-[#3b9fff]" />
-                  <a href="mailto:shivam@zyverionex.com">
+                <li className="flex items-start gap-3">
+                  <Mail size={18} className="text-[#3b9fff] shrink-0 mt-0.5" />
+                  <a href="mailto:shivam@zyverionex.com" className="hover:text-[#f0f4ff] transition-colors">
                     shivam@zyverionex.com
                   </a>
                 </li>
 
-                <li className="flex gap-2">
-                  <Phone size={16} className="text-[#3b9fff]" />
-                  <a href="tel:+917428451153">+91 74284 51153</a>
+                <li className="flex items-start gap-3">
+                  <Phone size={18} className="text-[#3b9fff] shrink-0 mt-0.5" />
+                  <a href="tel:+917428451153" className="hover:text-[#f0f4ff] transition-colors">+91 74284 51153</a>
                 </li>
 
-                <li className="flex gap-2">
-                  <MapPin size={16} className="text-[#3b9fff]" />
-                  Gurugram, Haryana, India
+                <li className="flex items-start gap-3">
+                  <MapPin size={22} className="text-[#3b9fff] shrink-0 mt-0.5" />
+                  <span className="leading-relaxed">
+                    2nd floor, Plot no.4, Minarch Tower, Sector-44,
+                    Gurugram, Haryana, India , 122003
+                  </span>
                 </li>
               </ul>
             </motion.div>

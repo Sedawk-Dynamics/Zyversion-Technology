@@ -253,7 +253,7 @@ const ParticleNetwork = () => {
 
 export default function ServicesZigZagPremium() {
   return (
-    <section className="py-28 bg-[#192D4B] text-white relative overflow-hidden">
+    <section id="services" className="py-28 bg-[#192D4B] text-white relative overflow-hidden">
 
       {/* Enhanced Background Motion & Grid Elements */}
       <div className="absolute inset-0 pointer-events-none">

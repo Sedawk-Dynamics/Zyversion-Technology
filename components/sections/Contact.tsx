@@ -7,11 +7,33 @@ import { FloatingNodeNetwork, HexagonGrid } from '@/components/utils/TechVisuals
 
 export default function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    alert('Thank you for reaching out. We will contact you shortly!')
-    setFormState({ name: '', email: '', message: '' })
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      })
+
+      if (response.ok) {
+        alert('Thank you for reaching out. We will contact you shortly!')
+        setFormState({ name: '', email: '', message: '' })
+      } else {
+        alert('Something went wrong. Please try again.')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -68,9 +90,9 @@ export default function Contact() {
                 {[
                   { icon: Mail, label: 'Email Us', value: 'shivam@zyverionex.com', href: 'mailto:shivam@zyverionex.com' },
                   { icon: Phone, label: 'Call Us', value: '+91 74284 51153', href: 'tel:+917428451153' },
-                  { icon: MapPin, label: 'Visit Us', value: 'Gurugram, Haryana, India', href: null }
+                  { icon: MapPin, label: 'Visit Us', value: '2nd floor, Plot no.4, Minarch Tower, Sector-44,Gurugram, Haryana, India , 122003', href: null }
                 ].map((item, i) => (
-                  <motion.div 
+                  <motion.div
                     key={item.label}
                     initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +100,7 @@ export default function Contact() {
                     viewport={{ once: true }}
                     className="flex items-start gap-4 group"
                   >
-                    <motion.div 
+                    <motion.div
                       whileHover={{ scale: 1.15 }}
                       className="w-10 h-10 rounded-sm bg-[rgba(59,159,255,0.1)] border border-[rgba(59,159,255,0.2)] flex items-center justify-center shrink-0 group-hover:bg-[rgba(59,159,255,0.18)] transition-all duration-300"
                     >
@@ -95,8 +117,8 @@ export default function Contact() {
                         </a>
                       ) : (
                         <p className="text-[#f0f4ff] font-medium leading-relaxed">
-                          {item.value === 'Gurugram, Haryana, India' 
-                            ? <><span>{item.value}</span></> 
+                          {item.value === 'Gurugram, Haryana, India'
+                            ? <><span>{item.value}</span></>
                             : item.value}
                         </p>
                       )}
@@ -106,7 +128,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.45 }}
@@ -149,9 +171,9 @@ export default function Contact() {
                   type={field.type}
                   placeholder={field.placeholder}
                   value={field.id === 'name' ? formState.name : formState.email}
-                  onChange={(e) => setFormState({ 
-                    ...formState, 
-                    [field.id]: e.target.value 
+                  onChange={(e) => setFormState({
+                    ...formState,
+                    [field.id]: e.target.value
                   })}
                   required
                   className="w-full px-4 py-3 bg-[#0d1628]/80 border border-[rgba(59,159,255,0.2)] text-[#f0f4ff] placeholder:text-[#7a93b8] focus:border-[#3b9fff] focus:outline-none focus:shadow-[0_0_12px_rgba(59,159,255,0.2)] rounded-sm text-sm transition-all duration-200"
@@ -194,7 +216,7 @@ export default function Contact() {
                 transition={{ duration: 0.5 }}
               />
               <span className="relative flex items-center gap-2">
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
                 <Send size={16} className="group-hover:translate-x-0.5 transition-transform" />
               </span>
             </motion.button>
