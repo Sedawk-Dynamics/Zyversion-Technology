@@ -297,9 +297,9 @@ export default function Hero() {
           className="mt-20 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16"
         >
           {[
-            { value: '15+', label: 'Services Offered' },
-            { value: '100%', label: 'Client Satisfaction' },
-            { value: '24/7', label: 'Technical Support' },
+            { value: 'Strategic Vision', label: 'Long-Term Business Growth' },
+            { value: 'Trusted Partnerships', label: 'Built on Transparency & Trust' },
+            { value: 'Reliable Support', label: 'Committed at Every Step' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p
