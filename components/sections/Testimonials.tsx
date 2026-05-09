@@ -7,32 +7,32 @@ import { DataFlowPattern, FloatingElements } from '@/components/utils/TechVisual
 
 const TESTIMONIALS = [
   {
-    name: 'Rajiv Sharma',
-    role: 'CTO, NovaTech Solutions',
+    name: 'Enterprise Technology Solutions',
+    role: 'Cloud Infrastructure & Modernization',
     quote:
-      'Zyverion transformed our legacy infrastructure into a cloud-native platform in record time. Their technical depth and delivery precision are genuinely best-in-class.',
-    initials: 'RS',
+      'We focus on building scalable, secure, and future-ready digital solutions tailored to evolving business needs. Our approach combines technical precision with long-term strategic thinking.',
+    initials: 'ET',
   },
   {
-    name: 'Priya Nair',
-    role: 'VP Engineering, FinEdge India',
+    name: 'AI & Data Engineering',
+    role: 'Intelligent Automation Systems',
     quote:
-      'The AI-powered analytics dashboard Zyverion built for us has become mission-critical. The team truly understood our domain and delivered something exceptional.',
-    initials: 'PN',
+      'From AI-powered workflows to advanced analytics platforms, Zyverion delivers technology solutions designed to improve efficiency, decision-making, and operational performance.',
+    initials: 'AI',
   },
   {
-    name: 'Arjun Kapoor',
-    role: 'Founder, LogiScale',
+    name: 'Cybersecurity & Compliance',
+    role: 'Security-First Architecture',
     quote:
-      'What stood out was their commitment. Even post-delivery, the Zyverion team was available, responsive, and proactive. A true technology partner.',
-    initials: 'AK',
+      'Security is integrated into every stage of development and infrastructure planning, helping organizations strengthen resilience while maintaining compliance and performance.',
+    initials: 'CS',
   },
   {
-    name: 'Meera Joshi',
-    role: 'Director of IT, SecureVault Corp',
+    name: 'Long-Term Technology Partnership',
+    role: 'Continuous Support & Innovation',
     quote:
-      'Their cybersecurity audit uncovered vulnerabilities we had no idea existed. Their recommendations were pragmatic, thorough, and implemented seamlessly.',
-    initials: 'MJ',
+      'Beyond delivery, we work closely with businesses to optimize systems, support growth, and continuously adapt technology strategies to changing market demands.',
+    initials: 'TP',
   },
 ]
 
@@ -87,7 +87,7 @@ export default function Testimonials() {
               whileHover={{ y: -8, boxShadow: '0 20px 50px rgba(59,159,255,0.15)' }}
               className="group relative p-8 border border-[rgba(59,159,255,0.12)] bg-[rgba(13,22,40,0.6)] hover:border-[rgba(59,159,255,0.3)] hover:bg-[rgba(59,159,255,0.03)] transition-all duration-300 overflow-hidden cursor-default"
             >
-              <motion.div 
+              <motion.div
                 className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#3b9fff] to-transparent"
                 initial={{ scaleX: 0 }}
                 whileHover={{ scaleX: 1 }}
@@ -106,7 +106,7 @@ export default function Testimonials() {
                 <Quote size={28} className="text-[#3b9fff]" />
               </motion.div>
 
-              <motion.p 
+              <motion.p
                 className="text-[#c8d8f0] text-base leading-relaxed mb-8 italic relative z-10"
                 initial={{ opacity: 0.85 }}
                 whileHover={{ opacity: 1 }}
@@ -115,14 +115,14 @@ export default function Testimonials() {
                 &ldquo;{t.quote}&rdquo;
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 className="flex items-center gap-4 relative z-10"
                 initial={{ y: 0 }}
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.3 }}
               >
                 {/* Avatar */}
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.15, rotate: -5 }}
                   transition={{ duration: 0.3 }}
                   className="w-11 h-11 rounded-sm bg-[#0d2d5e] border border-[rgba(59,159,255,0.3)] flex items-center justify-center shrink-0"
